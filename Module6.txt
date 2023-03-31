@@ -1,0 +1,10 @@
+Sub Excel_MAX_Function()
+'apply the Excel MAX function
+Range("U2") = Application.WorksheetFunction.Max(Range("P2:P3001"))
+Range("U4") = Application.WorksheetFunction.Max(Range("L2:L3001"))
+End Sub
+  
+Sub Excel_MIN_Function()
+'apply the Excel MIN function
+Range("U3") = Application.WorksheetFunction.Min(Range("P2:P3001"))
+End Sub

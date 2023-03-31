@@ -1,0 +1,59 @@
+Sub match_lookup()
+
+Dim rng As Range
+Dim aNumber As Double
+
+aNumber = Range("U2")
+
+Set rng = Range("P2:P3001")
+
+    If Application.WorksheetFunction.CountIf(rng, aNumber) > 0 Then
+
+        rowNum = Application.WorksheetFunction.match(aNumber, rng, 0)
+        Cells(2, 20) = Range("I" & rowNum)
+
+    Else
+        MsgBox aNumber & " does not exist in range " & rng.Address
+    End If
+    
+End Sub
+
+Sub match_lookup1()
+
+Dim rng As Range
+Dim aNumber As Double
+
+aNumber = Range("U3")
+
+Set rng = Range("P2:P3001")
+
+    If Application.WorksheetFunction.CountIf(rng, aNumber) > 0 Then
+
+        rowNum = Application.WorksheetFunction.match(aNumber, rng, 0)
+        Cells(3, 20) = Range("I" & rowNum)
+
+    Else
+        MsgBox aNumber & " does not exist in range " & rng.Address
+    End If
+
+End Sub
+
+Sub match_lookup2()
+
+Dim rng As Range
+Dim aNumber As Double
+
+aNumber = Range("U4")
+
+Set rng = Range("L2:L3001")
+
+    If Application.WorksheetFunction.CountIf(rng, aNumber) > 0 Then
+
+        rowNum = Application.WorksheetFunction.match(aNumber, rng, 0)
+        Cells(4, 20) = Range("I" & rowNum)
+
+    Else
+        MsgBox aNumber & " does not exist in range " & rng.Address
+    End If
+
+End Sub

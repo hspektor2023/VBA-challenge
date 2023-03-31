@@ -1,0 +1,35 @@
+Sub ClosePrice()
+
+  ' Set an initial variable for holding the close price
+  Dim Close_Price As Double
+  Dim LastRow As Long
+  
+  ' Keep track of the location for each stock ticker in the summary table
+  Dim Summary_Table_Row As Integer
+  Summary_Table_Row = 2
+  LastRow = Cells(Rows.Count, "A").End(xlUp).Row
+
+  ' Loop through all stock transactions
+  For i = 2 To LastRow
+
+    ' Check if we are still within the same stock ticker, if it is not...
+    If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+
+      ' Capture the Close Price
+      Close_Price = Cells(i, 6).Value
+
+      ' Print the Ticker Close Price Amount to the Summary Table
+      Range("N" & Summary_Table_Row).Value = Close_Price
+
+      ' Add one to the summary table row
+      Summary_Table_Row = Summary_Table_Row + 1
+
+    ' If the cell immediately following a row is the same ticker...DO NOTHING
+    
+    Else
+
+    End If
+
+  Next i
+
+End Sub

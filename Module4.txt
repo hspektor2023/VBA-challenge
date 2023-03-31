@@ -1,0 +1,36 @@
+Sub Change()
+
+  ' Set an initial variable for holding the yearly change
+  Dim Yearly_Change As Double
+  Dim Percent_Change As Double
+
+  ' Keep track of the location for each stock ticker in the summary table
+  Dim Summary_Table_Row As Integer
+  
+  ' Loop through all stock transactions
+  For i = 2 To 3001
+  
+      Summary_Table_Row = i
+
+      ' Capture the Open Price
+      Open_Price = Cells(i, 13).Value
+      
+      ' Capture the Close Price
+      Close_Price = Cells(i, 14).Value
+
+      ' Calculate the yearly change and percent change for the row
+      
+      Yearly_Change = Close_Price - Open_Price
+      Percent_Change = (Close_Price / Open_Price) - 1
+      
+      ' Print changes
+      
+      Range("J" & Summary_Table_Row).Value = Yearly_Change
+      Range("K" & Summary_Table_Row).Value = Percent_Change
+      
+      ' Add one to the summary table row
+      Summary_Table_Row = Summary_Table_Row + 1
+    
+  Next i
+
+End Sub

@@ -1,0 +1,38 @@
+Sub OpenPrice()
+
+  ' Set an initial variable for holding the Open Price per stock ticker
+  Dim Open_Price As Double
+  Open_Price = Cells(2, 3).Value
+  Dim LastRow As Long
+  
+  ' Keep track of the location for each stock ticker in the summary table
+  Dim Summary_Table_Row As Integer
+  Summary_Table_Row = 2
+  LastRow = Cells(Rows.Count, "A").End(xlUp).Row
+ 
+  ' Print the Open Price Amount for first ticker to the Summary Table
+  Range("M" & Summary_Table_Row).Value = Open_Price
+  
+  ' Loop through all stock transactions
+  For i = 2 To LastRow
+    
+       ' Check if we are still within the same stock ticker, if it is not...
+      If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+      
+      ' Add one to the summary table row
+      Summary_Table_Row = Summary_Table_Row + 1
+    
+      ' Capture the Open Price
+      Open_Price = Cells(i + 1, 3).Value
+
+      ' Print the Stock Ticker in the Summary Table
+      Range("M" & Summary_Table_Row).Value = Open_Price
+    
+    ' If the cell immediately following a row is the same ticker... do nothing
+    Else
+    
+    End If
+  
+  Next i
+
+End Sub

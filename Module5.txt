@@ -1,0 +1,34 @@
+Sub formatter()
+
+  ' Set the Cell Colors
+  
+  For i = 2 To 3001
+ 
+    If Cells(i, 10).Value < 0 Then
+    
+      Range("J" & i).Interior.ColorIndex = 3
+    
+    Else
+    
+      Range("J" & i).Interior.ColorIndex = 4
+
+    End If
+
+   Next i
+  
+   For i = 2 To 3001
+ 
+    If Cells(i, 11).Value < 0 Then
+    
+      Range("K" & i).Interior.ColorIndex = 3
+    
+    Else
+    
+      Range("K" & i).Interior.ColorIndex = 4
+
+    End If
+
+  Next i
+  
+End Sub
+
